@@ -136,24 +136,23 @@ return {
 	['lockpick'] = {
 		label = 'Lockpick',
 		weight = 160,
+		client = {
+			export = 'kmack_utils.tryVehLockpick'
+		}
 	},
 
-	['phone'] = {
-		label = 'Phone',
+	["phone"] = {
+		label = "Phone",
 		weight = 190,
 		stack = false,
 		consume = 0,
 		client = {
-			add = function(total)
-				if total > 0 then
-					pcall(function() return exports.npwd:setPhoneDisabled(false) end)
-				end
+			export = "lb-phone.ToggleOpen",
+			remove = function()
+				TriggerEvent("lb-phone:itemRemoved")
 			end,
-
-			remove = function(total)
-				if total < 1 then
-					pcall(function() return exports.npwd:setPhoneDisabled(true) end)
-				end
+			add = function()
+				TriggerEvent("lb-phone:itemAdded")
 			end
 		}
 	},
@@ -222,4 +221,58 @@ return {
 		label = 'Scrap Metal',
 		weight = 80,
 	},
+
+	["mdt"] = {
+		label = "MDT",
+		weight = 250,
+		client = {
+			export = "ox_mdt.openMDT"
+		}
+	},
+	['racingtablet'] = {
+		label = 'Racing tablet',
+		weight = 500,
+		description = 'Seems like something to do with cars.',
+		stack = false,
+		client = {
+			export = 'rahe-racing.racingtablet',
+		}
+	},
+	['fakeplate'] = {
+		label = 'Fake Plate',
+		weight = 500,
+		description = 'A fake plate to put on a car.',
+		stack = false,
+		client = {
+			export = 'kmack_utils.putOnFakePlate',
+		}
+	},
+	['fscrewdriver'] = {
+		label = 'Flathead Screwdriver',
+		weight = 500,
+		description = 'A flathead screwdriver.',
+		stack = false,
+		client = {
+			export = 'kmack_utils.removeFakePlate',
+		},
+	},
+	['policeitem'] = {
+		label = 'Police Item',
+		weight = 100,
+		description = 'Police Item',
+		stack = false,
+	},
+	['evidence_bag_filled'] = {
+		label = 'Evidence Bag',
+		weight = 100,
+		description = 'Filled Evidence Bag',
+		stack = false,
+	},
+	['evidence_bag_empty'] = {
+		label = 'Evidence Bag',
+		weight = 100,
+		description = 'Empty Evidence Bag',
+		stack = true,
+	}
+
 }
