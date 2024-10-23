@@ -273,6 +273,12 @@ return {
 		weight = 100,
 		description = 'Empty Evidence Bag',
 		stack = true,
+	},
+	['bleach'] = {
+		label = 'Bleach Bottle',
+		weight = 500,
+		description = 'A bottle of bleach.',
+		stack = false,
 	}
 
 }
